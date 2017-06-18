@@ -11,5 +11,7 @@ sql_query = ("""SELECT articles.title, COUNT(*) AS views
              ORDER BY views DESC LIMIT 3;""")
 cursor.execute(sql_query)
 results = cursor.fetchall()
+print ("1. What are the three most popular articles of all time?\n")
 for row in results:
-    print (row)
+    print ('"' + row[0] + '" - ' + str(row[1]) + " views")
+print("")
