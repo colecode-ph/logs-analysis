@@ -33,7 +33,7 @@ for row in results:
     print (row[0] + ' - ' + str(row[1]) + " views")
 print("")
 
-# query to answer third question - queries the view error_requests, SEE README.md
+# query to answer third question
 sql_query = ("""SELECT to_char(date, 'FMMonth FMDDth, YYYY') AS date,
              round(errors * 100.0 / requests, 1) AS percent
              FROM error_requests
