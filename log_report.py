@@ -2,8 +2,23 @@ import psycopg2
 
 DBNAME = "news"
 # create the database connection and get the cursor
-conn = psycopg2.connect(database=DBNAME)
-cursor = conn.cursor()
+def connect(database_name):
+    ''' connect to the PostgreSQL database - returns a connection '''
+    try:
+        db = psycopg2.connect("dbname={}".format(database_name))
+        cursor = db.cursor
+        return db, cursor
+    except psycopg2.Error as error:
+        print "Unable to connect to the database"
+        sys.exit(1)
+
+
+#conn = psycopg2.connect(database=DBNAME)
+#cursor = conn.cursor()
+
+connect(news)
+
+
 # query to answer the first question
 sql_query = ("""SELECT articles.title, COUNT(*) AS views
              FROM articles, log
