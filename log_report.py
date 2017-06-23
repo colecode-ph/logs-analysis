@@ -2,7 +2,7 @@ import psycopg2
 
 DBNAME = "news"
 # create the database connection and get the cursor
-'''def connect(database_name):
+def connect(database_name):
     connect to the PostgreSQL database - returns a connection
     try:
         db = psycopg2.connect("dbname={}".format(database_name))
@@ -10,16 +10,11 @@ DBNAME = "news"
         return db, cursor
     except psycopg2.Error as error:
         print ("Unable to connect to the database")
-        sys.exit(1)'''
-
-#conn = psycopg2.connect(database=DBNAME)
-#cursor = conn.cursor()
-#connect(DBNAME)
+        sys.exit(1)
 
 def fetch_query(sql_query):
     ''' queries the database and returns the results '''
-    db = psycopg2.connect(database=DBNAME)
-    cursor = db.cursor()
+    db, cursor = connect(DBNAME)
     cursor.execute(sql_query)
     results = cursor.fetchall()
     cursor.close()
