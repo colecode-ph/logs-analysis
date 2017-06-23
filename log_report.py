@@ -1,12 +1,13 @@
+#!/usr/bin/env python
 import psycopg2
 
 DBNAME = "news"
-# create the database connection and get the cursor
+
 def connect(database_name):
-    connect to the PostgreSQL database - returns a connection
+    '''connect to the PostgreSQL database - returns a connection'''
     try:
         db = psycopg2.connect("dbname={}".format(database_name))
-        cursor = db.cursor
+        cursor = db.cursor()
         return db, cursor
     except psycopg2.Error as error:
         print ("Unable to connect to the database")
@@ -14,7 +15,7 @@ def connect(database_name):
 
 def fetch_query(sql_query):
     ''' queries the database and returns the results '''
-    db, cursor = connect(DBNAME)
+    db, cursor = connect("news")
     cursor.execute(sql_query)
     results = cursor.fetchall()
     cursor.close()
@@ -36,15 +37,6 @@ def print_top_articles():
 
 if __name__ == '__main__':
     print_top_articles()
-
-
-#cursor.execute(sql_query)
-#results = cursor.fetchall()
-# print the question and answer in a human readable format
-
-
-
-
 
 
 '''
