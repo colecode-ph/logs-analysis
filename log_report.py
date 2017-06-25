@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import psycopg2
 
+
 def connect(database_name):
     '''connect to the PostgreSQL database - returns a connection'''
     try:
@@ -11,6 +12,7 @@ def connect(database_name):
         print ("Unable to connect to the database")
         sys.exit(1)
 
+
 def fetch_query(sql_query):
     ''' queries the database and returns the results '''
     db, cursor = connect("news")
@@ -19,6 +21,7 @@ def fetch_query(sql_query):
     cursor.close()
     db.close()
     return results
+
 
 def print_top_articles():
     ''' defines the query and prints the question and answer '''
@@ -33,6 +36,7 @@ def print_top_articles():
         print ('"' + row[0] + '" - ' + str(row[1]) + " views")
     print("")
 
+
 def print_top_authors():
     ''' defines the query and prints the question and answer '''
     sql_query = ("""SELECT authors.name, COUNT(*) AS views
@@ -46,6 +50,7 @@ def print_top_authors():
     for row in results:
         print (row[0] + ' - ' + str(row[1]) + " views")
     print("")
+
 
 def print_top_error_days():
     ''' defines the query and prints the question and answer '''
