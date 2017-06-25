@@ -50,16 +50,15 @@ The database contains three tables: articles, authors, and log. The log table co
 
 ## How to run it ##
 
-The file is an executable so it can be is by typing `log_report.py` from the command line.
+The file is an executable so it can be is by typing `./log_report.py` from the command line.
 
 ## SQL used to create the view used in query #3 ##
 
 The third query in log_report.py is against a view which was created with the following:
 
-    `
     CREATE VIEW error_requests AS
     SELECT time::date AS date,
     COUNT(*) AS requests,
     COUNT(*) FILTER(WHERE status LIKE '4%' OR status LIKE '5%') AS errors
     FROM log
-    GROUP BY time::date;`
+    GROUP BY time::date;
