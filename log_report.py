@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import psycopg2
 
-DBNAME = "news"
+#DBNAME = "news"
 
 def connect(database_name):
     '''connect to the PostgreSQL database - returns a connection'''
@@ -15,7 +15,7 @@ def connect(database_name):
 
 def fetch_query(sql_query):
     ''' queries the database and returns the results '''
-    db, cursor = connect(DBNAME)
+    db, cursor = connect("news")
     cursor.execute(sql_query)
     results = cursor.fetchall()
     cursor.close()
