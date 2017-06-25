@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 import psycopg2
 
-#DBNAME = "news"
-
 def connect(database_name):
     '''connect to the PostgreSQL database - returns a connection'''
     try:
