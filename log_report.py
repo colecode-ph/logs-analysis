@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import psycopg2
-
+import sys
 
 def connect(database_name):
     '''connect to the PostgreSQL database - returns a connection'''
