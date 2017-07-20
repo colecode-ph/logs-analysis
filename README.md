@@ -1,10 +1,10 @@
 # Udacity project #3 - Logs Analysis #
 This project consists of a Python file, log_report.py, which queries a PostgreSQL database, and prints results via the command line. An output.txt file is also included to show the output of the executed Python file.
 
-The Python file uses the imported psycopg2 module to interact with the database. The file was tested in both Python 2 and 3, on an Ubuntu 16.04 virtual machine, running in a Vagrant/Virtualbox environment.
+The Python file uses the imported psycopg2 module to interact with the database. The file was tested in both Python 2 and 3, on an Ubuntu 16.04 virtual machine, running in a Vagrant/Virtualbox environment. After the projected was reviewed and accepted, I added the vagrant configuration file to the repository for my own future reference. There are some extra packages included in the Vagrantfile which are used for other projects - all this particular project requires in addition to Python is PostgreSQL and the psycopg2 module.
 
 ## PostgreSQL database structure ##
-The database contains three tables: articles, authors, and log. The log table contains the contents of a web server request log. The PostgreSQL database was generated with a provided script, which is not included in the repository, however the \d readout of the tables, along with the output.txt file should provide a good idea of the database content:
+The database contains three tables: articles, authors, and log. The log table contains the contents of a web server request log. The PostgreSQL database was generated with a provided .sql dump, which is not included in the repository due to size limitations, however the \d readout of the tables, along with the output.txt file should provide a good idea of the database content:
 
     Table "public.articles"
      Column |           Type           |                       Modifiers
